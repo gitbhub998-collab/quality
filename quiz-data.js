@@ -1,247 +1,375 @@
-const questions = [
+const qualityMidtermQuestions = [
   {
-    id: "a",
-    questionEn: "Which of the following components forms a standard FRL Service Unit?",
-    questionAr: "أي من المكونات التالية يشكل وحدة خدمة FRL القياسية؟",
+    id: 1,
+    type: "TF",
+    questionEn: "Quality Control (QC) is a proactive approach.",
+    questionAr: "مراقبة الجودة (QC) هي نهج استباقي.",
     options: [
-      { textEn: "Filter, Regulator, Lubricator.", textAr: "الفلتر، المنظم، المشحم" },
-      { textEn: "Flow valve, Receiver, Lever.", textAr: "صمام التدفق، المستقبل، الرافعة" },
-      { textEn: "Fast-acting Relay, Logic element, Receiver.", textAr: "مرحل سريع الاستجابة، عنصر منطقي، مستقبل" },
-      { textEn: "Feed line, Reservoir, Lever.", textAr: "خط التغذية، الخزان، الرافعة" }
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
     ],
-    correctAnswerIndex: 0
+    hintAr: "مراقبة الجودة (QC) تعتبر نهجاً تفاعلياً (Reactive) يُركز على اكتشاف العيوب بعد حدوثها."
   },
   {
-    id: "b",
-    questionEn: "Which element acts as the signal output / positioning element in a pure pneumatic control chain?",
-    questionAr: "أي عنصر يعمل كعنصر إخراج إشارة / تحديد الموضع في سلسلة تحكم نيوماتيكية (هوائية) بحتة؟",
+    id: 2,
+    type: "TF",
+    questionEn: "Quality Assurance (QA) focuses on preventing defects.",
+    questionAr: "ضمان الجودة (QA) يركز على منع العيوب.",
     options: [
-      { textEn: "Electrical Relay Control.", textAr: "تحكم مرحل كهربائي" },
-      { textEn: "Pneumatically actuated Way-valve.", textAr: "صمام توجيهي مشغل هوائيًا" },
-      { textEn: "24V DC Power Supply.", textAr: "مصدر طاقة 24 فولت تيار مستمر" },
-      { textEn: "Roller-lever Valve input.", textAr: "إدخال صمام برافعة دوارة" }
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
     ],
-    correctAnswerIndex: 1
+    hintAr: "ضمان الجودة نهج استباقي يركز على العملية نفسها لمنع حدوث العيوب من الأساس."
   },
   {
-    id: "c",
-    questionEn: "What is a primary advantage of pneumatic systems in hazardous industrial environments?",
-    questionAr: "ما هي الميزة الأساسية للأنظمة النيوماتيكية (الهوائية) في البيئات الصناعية الخطرة؟",
+    id: 3,
+    type: "TF",
+    questionEn: "In TQM, quality is the responsibility of the quality inspector alone.",
+    questionAr: "في إدارة الجودة الشاملة (TQM)، الجودة هي مسؤولية مفتش الجودة وحده.",
     options: [
-      { textEn: "Incompressible fluid force.", textAr: "قوة مائع غير قابلة للانضغاط" },
-      { textEn: "Extremely high positioning precision.", textAr: "دقة تحديد موضع عالية جدًا" },
-      { textEn: "No fire or explosion hazards.", textAr: "عدم وجود مخاطر حريق أو انفجار" },
-      { textEn: "Silent exhaust discharge.", textAr: "تفريغ عادم صامت" }
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
     ],
-    correctAnswerIndex: 2
+    hintAr: "إدارة الجودة الشاملة تجعل الجودة مسؤولية كل فرد داخل المؤسسة، وليس المفتش فقط."
   },
   {
-    id: "d",
-    questionEn: "The fundamental formula relating force (F), pressure (p), and area (A) in a cylinder is:",
-    questionAr: "الصيغة الأساسية التي تربط بين القوة (F) والضغط (p) والمساحة (A) في الأسطوانة هي:",
+    id: 4,
+    type: "TF",
+    questionEn: "Inspection is to detect defects.",
+    questionAr: "الفحص (Inspection) هو لاكتشاف العيوب.",
     options: [
-      { textEn: "F = p / A", textAr: "F = p / A" },
-      { textEn: "F = m / p", textAr: "F = m / p" },
-      { textEn: "F = p + A", textAr: "F = p + A" },
-      { textEn: "F = p · A", textAr: "F = p · A" }
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
     ],
-    correctAnswerIndex: 3
+    hintAr: "النشاط الذي يتم لاكتشاف العيوب يُعرف بالفحص."
   },
   {
-    id: "e",
-    questionEn: "Which signal processing element is typically used in electro-pneumatic control systems?",
-    questionAr: "ما هو عنصر معالجة الإشارات المستخدم عادة في أنظمة التحكم الكهرو-نيوماتيكية؟",
+    id: 5,
+    type: "TF",
+    questionEn: "Testing is to detect defects.",
+    questionAr: "الاختبار (Testing) هو لاكتشاف العيوب.",
     options: [
-      { textEn: "Pneumatic Check Valve.", textAr: "صمام عدم رجوع نيوماتيكي" },
-      { textEn: "Pneumatic Throttle Valve.", textAr: "صمام خانق نيوماتيكي" },
-      { textEn: "Programmable Logic Controller (PLC).", textAr: "جهاز تحكم منطقي قابل للبرمجة - PLC" },
-      { textEn: "Maintenance Unit Receiver.", textAr: "مستقبل وحدة الصيانة" }
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
     ],
-    correctAnswerIndex: 2
+    hintAr: "الاختبار (Testing) يُستخدم لقياس خصائص القماش، وليس لاكتشاف العيوب."
   },
   {
-    id: "f",
-    questionEn: "Why is an Air Lubricator (L) intentionally skipped in clean-room pneumatic applications?",
-    questionAr: "لماذا يتم تخطي مشحم الهواء (L) عمدًا في التطبيقات النيوماتيكية للغرف النظيفة؟",
+    id: 6,
+    type: "TF",
+    questionEn: "A fabric required to have a minimum tensile strength of 500 N is acceptable if the sample shows 460 N.",
+    questionAr: "القماش المطلوب أن يكون الحد الأدنى لقوة الشد له 500 نيوتن يعتبر مقبولاً إذا أظهرت العينة 460 نيوتن.",
     options: [
-      { textEn: "To reduce operating pressure below 1 bar.", textAr: "لتقليل ضغط التشغيل لأقل من 1 بار" },
-      { textEn: "To avoid air compressibility.", textAr: "لتجنب قابلية انضغاط الهواء" },
-      { textEn: "To prevent oil mist contamination in oil-free clean environments.", textAr: "لمنع التلوث برذاذ الزيت في البيئات النظيفة الخالية من الزيت" },
-      { textEn: "To silence escaping exhaust noise.", textAr: "لكتم ضوضاء العادم المتسرب" }
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
     ],
-    correctAnswerIndex: 2
+    hintAr: "بما أن الحد الأدنى المطلوب هو 500 نيوتن، فأي قيمة أقل (مثل 460) تعتبر مرفوضة لأنها لا تلبي المواصفات."
   },
   {
-    id: "g",
-    questionEn: "Boyle's Law for ideal gas behavior at constant temperature is represented by which expression?",
-    questionAr: "قانون بويل لسلوك الغاز المثالي عند درجة حرارة ثابتة يتم تمثيله بأي تعبير؟",
+    id: 7,
+    type: "TF",
+    questionEn: "The incoming inspector inspects yarns, fabrics, and accessories upon arrival at the warehouse.",
+    questionAr: "مفتش الاستلام (incoming inspector) يفحص الخيوط والأقمشة والإكسسوارات عند وصولها إلى المستودع.",
     options: [
-      { textEn: "p1 · V1 = p2 · V2 = constant", textAr: "p1 · V1 = p2 · V2 = constant (ثابت)" },
-      { textEn: "p1 / V1 = p2 / V2", textAr: "p1 / V1 = p2 / V2" },
-      { textEn: "F1 · A1 = F2 · A2", textAr: "F1 · A1 = F2 · A2" },
-      { textEn: "p1 + V1 = p2 + V2", textAr: "p1 + V1 = p2 + V2" }
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
     ],
-    correctAnswerIndex: 0
+    hintAr: "هذه هي الوظيفة الأساسية لمفتش الاستلام؛ التأكد من جودة المواد الخام فور وصولها."
   },
   {
-    id: "h",
-    questionEn: "What component is used to limit and control the speed of movement of a pneumatic cylinder?",
-    questionAr: "ما هو المكون المستخدم للحد من سرعة حركة الأسطوانة النيوماتيكية والتحكم فيها؟",
+    id: 8,
+    type: "TF",
+    questionEn: "The inline inspector performs the final audit before packing and shipping.",
+    questionAr: "المفتش الداخلي (inline inspector) يقوم بالمراجعة النهائية قبل التعبئة والشحن.",
     options: [
-      { textEn: "Pressure reducing valve.", textAr: "صمام تقليل الضغط" },
-      { textEn: "Flow valve (throttle valve).", textAr: "صمام تدفق - صمام خانق" },
-      { textEn: "Electrical pressure switch.", textAr: "مفتاح ضغط كهربائي" },
-      { textEn: "FRL Filter.", textAr: "فلتر FRL" }
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
     ],
-    correctAnswerIndex: 1
+    hintAr: "المفتش النهائي (Endline inspector) هو من يقوم بالمراجعة النهائية، وليس المفتش الداخلي (Inline)."
   },
   {
-    id: "i",
-    questionEn: "Which of the following is classified as an Energy Supply element in a pneumatic signal chain?",
-    questionAr: "أي مما يلي يُصنف كعنصر إمداد بالطاقة في سلسلة إشارات نيوماتيكية؟",
+    id: 9,
+    type: "TF",
+    questionEn: "The end line audit is done after the entire process is over.",
+    questionAr: "المراجعة النهائية (end line audit) تتم بعد انتهاء العملية بأكملها.",
     options: [
-      { textEn: "Cylinder and pivoting drive.", textAr: "الأسطوانة ومحرك الدوران" },
-      { textEn: "Proximity sensor.", textAr: "حساس التقارب" },
-      { textEn: "Compressor and air receiver.", textAr: "الضاغط ومستقبل الهواء" },
-      { textEn: "Directional control valve.", textAr: "صمام التحكم التوجيهي" }
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
     ],
-    correctAnswerIndex: 2
+    hintAr: "من اسمها، المراجعة النهائية تُجرى كخطوة أخيرة بعد اكتمال جميع مراحل الإنتاج."
   },
   {
-    id: "j",
-    questionEn: "What is the typical economic pressure limit for compressed air industrial applications?",
-    questionAr: "ما هو الحد الاقتصادي النموذجي للضغط لتطبيقات الهواء المضغوط الصناعية؟",
+    id: 10,
+    type: "TF",
+    questionEn: "Size set samples are given importance because they are mainly asked by the buyer.",
+    questionAr: "عينات المقاسات تُعطى أهمية لأن المشتري هو من يطلبها بشكل أساسي.",
     options: [
-      { textEn: "Up to 1000 bar.", textAr: "حتى 1000 بار" },
-      { textEn: "Up to 200 bar.", textAr: "حتى 200 بار" },
-      { textEn: "Exactly 1 bar.", textAr: "1 بار بالضبط" },
-      { textEn: "Up to 6-10 bar.", textAr: "حتى 6-10 بار" }
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
     ],
-    correctAnswerIndex: 3
+    hintAr: "المشتري يهتم جداً بعينات المقاسات لضمان مطابقتها لمتطلباته قبل بدء الإنتاج الكمي."
+  },
+  {
+    id: 11,
+    type: "TF",
+    questionEn: "Maintenance keeps the machines reliable.",
+    questionAr: "الصيانة تحافظ على موثوقية وكفاءة الماكينات.",
+    options: [
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
+    ],
+    hintAr: "دور قسم الصيانة الأساسي هو ضمان عمل الآلات بشكل صحيح وموثوق لتجنب التوقفات أو العيوب."
+  },
+  {
+    id: 12,
+    type: "TF",
+    questionEn: "Production provides leadership and resources.",
+    questionAr: "الإنتاج يوفر القيادة والموارد.",
+    options: [
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
+    ],
+    hintAr: "الإدارة (Management) هي من يوفر القيادة والموارد، وليس قسم الإنتاج."
+  },
+  {
+    id: 13,
+    type: "TF",
+    questionEn: "A brainstormed cause on the Fishbone Diagram is a proven cause.",
+    questionAr: "السبب المستنتج من العصف الذهني في مخطط عظم السمكة هو سبب مُثبت.",
+    options: [
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
+    ],
+    hintAr: "الأسباب في مخطط السمكة هي مجرد احتمالات تحتاج إلى تحقيق وتأكيد (Verify RCA) لتصبح أسباباً مُثبتة."
+  },
+  {
+    id: 14,
+    type: "TF",
+    questionEn: "The \"head\" of the Fishbone Diagram states the effect or problem.",
+    questionAr: "«رأس» مخطط عظم السمكة يوضح الأثر أو المشكلة.",
+    options: [
+      { textEn: "True", textAr: "صح", isCorrect: true },
+      { textEn: "False", textAr: "خطأ", isCorrect: false }
+    ],
+    hintAr: "دائماً ما يُمثل رأس السمكة في المخطط المشكلة الرئيسية التي يتم البحث عن أسبابها."
+  },
+  {
+    id: 15,
+    type: "TF",
+    questionEn: "RCA is simply asking \"who made the mistake?\".",
+    questionAr: "تحليل السبب الجذري (RCA) هو ببساطة السؤال «من ارتكب الخطأ؟».",
+    options: [
+      { textEn: "True", textAr: "صح", isCorrect: false },
+      { textEn: "False", textAr: "خطأ", isCorrect: true }
+    ],
+    hintAr: "تحليل RCA يركز على البحث المنهجي للظروف التي سمحت بحدوث المشكلة، وليس إلقاء اللوم على الأشخاص."
+  },
+  {
+    id: 16,
+    type: "MCQ",
+    questionEn: "Quality Control (QC) is a ........ approach.",
+    questionAr: "مراقبة الجودة (QC) هي نهج ........",
+    options: [
+      { textEn: "proactive", textAr: "استباقي", isCorrect: false },
+      { textEn: "reactive", textAr: "تفاعلي", isCorrect: true },
+      { textEn: "cultural", textAr: "ثقافي", isCorrect: false }
+    ],
+    hintAr: "مراقبة الجودة تركز على اكتشاف العيوب بعد أن تحدث، لذلك تُصنف كنهج تفاعلي (رد فعل)."
+  },
+  {
+    id: 17,
+    type: "MCQ",
+    questionEn: "Which one is a tool of Quality Assurance (QA)?",
+    questionAr: "أي مما يلي يُعد من أدوات ضمان الجودة (QA)؟",
+    options: [
+      { textEn: "Sorting garments", textAr: "فرز الملابس", isCorrect: false },
+      { textEn: "Visual inspection", textAr: "الفحص البصري", isCorrect: false },
+      { textEn: "Worker training", textAr: "تدريب العمال", isCorrect: true }
+    ],
+    hintAr: "ضمان الجودة يعتمد على منع الخطأ قبل حدوثه، وتدريب العمال وإجراءات التشغيل (SOPs) من أهم أدواته."
+  },
+  {
+    id: 18,
+    type: "MCQ",
+    questionEn: "Which one belongs to Material Quality?",
+    questionAr: "أي مما يلي ينتمي إلى جودة المواد (Material Quality)؟",
+    options: [
+      { textEn: "Tensile strength", textAr: "قوة الشد", isCorrect: true },
+      { textEn: "Cutting", textAr: "القص", isCorrect: false },
+      { textEn: "Seam alignment", textAr: "محاذاة الخياطة", isCorrect: false }
+    ],
+    hintAr: "قوة الشد هي خاصية فيزيائية للمادة نفسها، بينما القص والخياطة مرتبطة بجودة التصنيع (Workmanship)."
+  },
+  {
+    id: 19,
+    type: "MCQ",
+    questionEn: "Who acts as the customer's representative?",
+    questionAr: "من الذي يتصرف كممثل للعميل (داخل المصنع)؟",
+    options: [
+      { textEn: "Incoming inspector", textAr: "مفتش الاستلام", isCorrect: false },
+      { textEn: "Inline inspector", textAr: "المفتش الداخلي", isCorrect: false },
+      { textEn: "Endline inspector", textAr: "المفتش النهائي", isCorrect: true }
+    ],
+    hintAr: "المفتش النهائي هو خط الدفاع الأخير الذي يتأكد من المنتج قبل شحنه، ليكون بمثابة عين العميل."
+  },
+  {
+    id: 20,
+    type: "MCQ",
+    questionEn: "The first step of the QC process is:",
+    questionAr: "الخطوة الأولى في عملية مراقبة الجودة هي:",
+    options: [
+      { textEn: "Quality Standards / Specifications", textAr: "معايير/مواصفات الجودة", isCorrect: true },
+      { textEn: "Comparison", textAr: "المقارنة", isCorrect: false },
+      { textEn: "Decision", textAr: "القرار", isCorrect: false }
+    ],
+    hintAr: "لا يمكنك مراقبة الجودة بدون وجود معايير أو مواصفات أساسية تقارن على أساسها."
+  },
+  {
+    id: 21,
+    type: "MCQ",
+    questionEn: "Which one is NOT from the 6M?",
+    questionAr: "أي مما يلي لا يُعتبر من عناصر الـ 6M؟",
+    options: [
+      { textEn: "Management", textAr: "الإدارة", isCorrect: true },
+      { textEn: "Man", textAr: "القوى العاملة", isCorrect: false },
+      { textEn: "Machine", textAr: "الماكينة", isCorrect: false },
+      { textEn: "Method", textAr: "الطريقة", isCorrect: false }
+    ],
+    hintAr: "عناصر الـ 6M في مخطط السمكة لا تتضمن الإدارة (Management)."
+  },
+  {
+    id: 22,
+    type: "MCQ",
+    questionEn: "Testing is to:",
+    questionAr: "الاختبار (Testing) وظيفته هي:",
+    options: [
+      { textEn: "detect defects", textAr: "اكتشاف العيوب", isCorrect: false },
+      { textEn: "measure fabric property", textAr: "قياس خصائص القماش", isCorrect: true },
+      { textEn: "write procedures", textAr: "كتابة الإجراءات", isCorrect: false }
+    ],
+    hintAr: "الاختبار يتم في المعمل لقياس خصائص معينة في القماش، بينما الفحص (Inspection) هو ما يكتشف العيوب."
+  },
+  {
+    id: 23,
+    type: "MCQ",
+    questionEn: "The pre-production audit is mainly done at the:",
+    questionAr: "المراجعة قبل الإنتاج (pre-production audit) تتم بشكل أساسي في:",
+    options: [
+      { textEn: "sampling stage", textAr: "مرحلة أخذ العينات", isCorrect: true },
+      { textEn: "packing stage", textAr: "مرحلة التعبئة", isCorrect: false },
+      { textEn: "shipping stage", textAr: "مرحلة الشحن", isCorrect: false }
+    ],
+    hintAr: "من اسمها 'قبل الإنتاج'، فهي تتم في مرحلة العينات (Sampling) قبل بدء الإنتاج الفعلي."
+  },
+  {
+    id: 24,
+    type: "MCQ",
+    questionEn: "Which department keeps the machines reliable?",
+    questionAr: "أي قسم يحافظ على موثوقية الماكينات؟",
+    options: [
+      { textEn: "Procurement", textAr: "المشتريات", isCorrect: false },
+      { textEn: "Maintenance", textAr: "الصيانة", isCorrect: true },
+      { textEn: "Human Resources", textAr: "الموارد البشرية", isCorrect: false }
+    ],
+    hintAr: "قسم الصيانة هو المسؤول عن إبقاء الآلات في حالة عمل جيدة وموثوقة."
+  },
+  {
+    id: 25,
+    type: "MCQ",
+    questionEn: "Which department supports employee efficiency with training?",
+    questionAr: "أي قسم يدعم كفاءة الموظفين من خلال التدريب؟",
+    options: [
+      { textEn: "Human Resources", textAr: "الموارد البشرية", isCorrect: true },
+      { textEn: "Production", textAr: "الإنتاج", isCorrect: false },
+      { textEn: "Quality", textAr: "الجودة", isCorrect: false }
+    ],
+    hintAr: "الموارد البشرية (HR) هي المسؤولة عن تدريب وتطوير كفاءة الموظفين."
+  },
+  {
+    id: 26,
+    type: "MCQ",
+    questionEn: "Which tool answers the question \"What could cause it?\"",
+    questionAr: "أي أداة تجيب على سؤال «ما الذي يمكن أن يسبب ذلك؟»",
+    options: [
+      { textEn: "Pareto", textAr: "باريتو", isCorrect: false },
+      { textEn: "Define", textAr: "تحديد (التعريف)", isCorrect: false },
+      { textEn: "Fishbone", textAr: "عظم السمكة", isCorrect: true }
+    ],
+    hintAr: "مخطط عظم السمكة (Ishikawa) يُستخدم في العصف الذهني لإيجاد جميع الأسباب المحتملة للمشكلة."
+  },
+  {
+    id: 27,
+    type: "MCQ",
+    questionEn: "In the weaving mill case study, the first-pass defects increased from 3% to:",
+    questionAr: "في دراسة حالة مصنع النسيج، زادت عيوب المرور الأول من 3% إلى:",
+    options: [
+      { textEn: "6%", textAr: "6%", isCorrect: false },
+      { textEn: "9%", textAr: "9%", isCorrect: true },
+      { textEn: "12%", textAr: "12%", isCorrect: false }
+    ],
+    hintAr: "حسب بيان المشكلة في دراسة الحالة المذكورة، ارتفع معدل العيوب إلى 9%."
+  },
+  {
+    id: 28,
+    type: "MCQ",
+    questionEn: "Which one is evidence used in RCA?",
+    questionAr: "أي مما يلي يُعد دليلاً يُستخدم في تحليل السبب الجذري (RCA)؟",
+    options: [
+      { textEn: "Maintenance logs", textAr: "سجلات الصيانة", isCorrect: true },
+      { textEn: "Rumors", textAr: "الشائعات", isCorrect: false },
+      { textEn: "Guessing", textAr: "التخمين", isCorrect: false }
+    ],
+    hintAr: "تحليل السبب الجذري يعتمد على الحقائق والبيانات الموثقة مثل سجلات الصيانة، وليس التخمين أو الشائعات."
+  },
+  {
+    id: 29,
+    type: "MCQ",
+    questionEn: "Which is a good problem statement?",
+    questionAr: "أيها يمثل صياغة جيدة للمشكلة (Problem statement)؟",
+    options: [
+      { textEn: "\"Fabric quality is poor.\"", textAr: "«جودة القماش سيئة.»", isCorrect: false },
+      { textEn: "\"The first-pass defect rate on Loom Group B rose from 3% to 9% between 1 and 14 October.\"", textAr: "«ارتفع معدل عيوب المرور الأول في مجموعة الأنوال B من 3% إلى 9% بين 1 و 14 أكتوبر.»", isCorrect: true }
+    ],
+    hintAr: "بيان المشكلة الجيد يجب أن يكون محدداً بالأرقام والوقت والمكان بدلاً من الوصف العام."
+  },
+  {
+    id: 30,
+    type: "MCQ",
+    questionEn: "Who moves between production lines to ensure operators follow the approved sample?",
+    questionAr: "من الذي يتحرك بين خطوط الإنتاج للتأكد من اتباع العمال للعينة المعتمدة؟",
+    options: [
+      { textEn: "Endline inspector", textAr: "المفتش النهائي", isCorrect: false },
+      { textEn: "Incoming inspector", textAr: "مفتش الاستلام", isCorrect: false },
+      { textEn: "Inline inspector", textAr: "المفتش الداخلي", isCorrect: true }
+    ],
+    hintAr: "المفتش الداخلي (Inline) هو من يقوم بالتجول في صالة الإنتاج ومراقبة العمليات أثناء حدوثها."
   }
 ];
 
-const trueFalseQuestions = [
-  {
-    id: "a",
-    statementEn: "The word 'Pneumatics' originates from the Greek word 'pneuma', which means water or liquid flow.",
-    statementAr: "كلمة 'نيوماتيك' (Pneumatics) مشتقة من الكلمة اليونانية 'pneuma'، والتي تعني تدفق الماء أو السائل.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 1
-  },
-  {
-    id: "b",
-    statementEn: "Pneumatic actuators can be loaded to complete mechanical standstill without causing thermal or mechanical damage.",
-    statementAr: "يمكن تحميل المشغلات النيوماتيكية (الهوائية) حتى التوقف الميكانيكي التام دون التسبب في تلف حراري أو ميكانيكي.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  },
-  {
-    id: "c",
-    statementEn: "Compressed air systems require no initial filtering, drying, or pressure regulation prior to entering pneumatic control valves.",
-    statementAr: "لا تتطلب أنظمة الهواء المضغوط أي فلترة أولية، أو تجفيف، أو تنظيم للضغط قبل الدخول إلى صمامات التحكم النيوماتيكية.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 1
-  },
-  {
-    id: "d",
-    statementEn: "Constant piston speeds are difficult to achieve in pneumatic cylinders primarily due to air compressibility.",
-    statementAr: "من الصعب تحقيق سرعات ثابتة للمكبس في الأسطوانات النيوماتيكية ويرجع ذلك أساسًا إلى قابلية الهواء للانضغاط.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  },
-  {
-    id: "e",
-    statementEn: "The standard gauge operating pressure maintained by an FRL Pressure Regulator is typically set to 6 bar.",
-    statementAr: "عادةً ما يتم ضبط ضغط التشغيل القياسي الذي يحافظ عليه منظم ضغط FRL عند 6 بار.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  },
-  {
-    id: "f",
-    statementEn: "In an electro-pneumatic system, signal processing is performed using pure pneumatic pilot air signals.",
-    statementAr: "في النظام الكهرو-نيوماتيكي، تتم معالجة الإشارات باستخدام إشارات هواء دليلي نيوماتيكية بحتة.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 1
-  },
-  {
-    id: "g",
-    statementEn: "An Air Filter in an FRL unit typically separates moisture and filters solid particles down to 5-40 μm.",
-    statementAr: "عادةً ما يقوم فلتر الهواء في وحدة FRL بفصل الرطوبة وتصفية الجزيئات الصلبة حتى حجم 5-40 ميكرومتر.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  },
-  {
-    id: "h",
-    statementEn: "According to pressure conversions, 1 bar is equal to 10^5 Pa (or 10N/cm²).",
-    statementAr: "وفقًا لتحويلات الضغط، 1 بار يساوي 10^5 باسكال (أو 10 نيوتن/سم²).",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  },
-  {
-    id: "i",
-    statementEn: "In pure pneumatic systems, proximity sensors and 24V DC solenoids are used for signal input and actuation.",
-    statementAr: "في الأنظمة النيوماتيكية البحتة، يتم استخدام حساسات التقارب والملفات اللولبية (Solenoids) التي تعمل بجهد 24 فولت تيار مستمر لإدخال الإشارات والتشغيل.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 1
-  },
-  {
-    id: "j",
-    statementEn: "Escaping exhaust air in pneumatic systems produces noise that requires attenuation using exhaust silencers.",
-    statementAr: "ينتج عن هواء العادم المتسرب في الأنظمة النيوماتيكية ضوضاء تتطلب التخفيف باستخدام كواتم صوت العادم.",
-    options: [
-      { textEn: "True", textAr: "صح" },
-      { textEn: "False", textAr: "خطأ" }
-    ],
-    correctAnswerIndex: 0
-  }
-];
+function toQuizData(items) {
+  return items.map((item) => {
+    const correctIndex = item.options.findIndex((option) => option.isCorrect === true);
 
-function toQuizData(items, questionKey, arabicQuestionKey) {
-  return items.map(item => ({
-    id: item.id,
-    question: item[questionKey],
-    arabicQuestion: item[arabicQuestionKey],
-    options: Object.fromEntries(item.options.map((option, index) => [
-      String.fromCharCode(65 + index),
-      option.textEn
-    ])),
-    arabicOptions: Object.fromEntries(item.options.map((option, index) => [
-      String.fromCharCode(65 + index),
-      option.textAr
-    ])),
-    correctAnswer: String.fromCharCode(65 + item.correctAnswerIndex),
-    hint: "",
-    arabicHint: ""
-  }));
+    return {
+      id: item.id,
+      question: item.questionEn || item.statementEn,
+      arabicQuestion: item.questionAr || item.statementAr,
+      options: Object.fromEntries(
+        item.options.map((option, index) => [String.fromCharCode(65 + index), option.textEn])
+      ),
+      arabicOptions: Object.fromEntries(
+        item.options.map((option, index) => [String.fromCharCode(65 + index), option.textAr])
+      ),
+      correctAnswer: correctIndex >= 0 ? String.fromCharCode(65 + correctIndex) : "A",
+      hint: "",
+      arabicHint: item.hintAr || ""
+    };
+  });
 }
 
-const pneumaticMultipleChoiceQuiz = toQuizData(questions, "questionEn", "questionAr");
-const pneumaticTrueFalseQuiz = toQuizData(trueFalseQuestions, "statementEn", "statementAr");
+const pneumaticMultipleChoiceQuiz = toQuizData(
+  qualityMidtermQuestions.filter((item) => item.type === "MCQ")
+);
+const pneumaticTrueFalseQuiz = toQuizData(
+  qualityMidtermQuestions.filter((item) => item.type === "TF")
+);
